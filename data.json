@@ -1,0 +1,74 @@
+{
+  "employees": [
+    {
+      "id":1,
+      "fname": "rohan",
+      "lname": "a",
+      "email": "rohan@gmail.com",
+      "mobile": "123"
+    },
+    {
+      "id":2,
+      "fname": "sohan",
+      "lname": "b",
+      "email": "sohan@gmail.com",
+      "mobile": "456"
+    },
+    {
+      "id":3,
+      "fname": "ajay",
+      "lname": "j",
+      "email": "ajay@gmail.com",
+      "mobile": "789"
+    },
+    {
+      "id":4,
+      "fname": "vijay",
+      "lname": "df",
+      "email": "vijay@gmail.com",
+      "mobile": "1201"
+    },
+    {
+      "id":5,
+      "fname": "jay",
+      "lname": "14",
+      "email": "jay@gmail.com",
+      "mobile": "73242"
+    },
+    {
+      "id":6,
+      "fname": "vikram",
+      "lname": "js",
+      "email": "vikram@gmail.com",
+      "mobile": "100"
+    },
+    {
+      "id":7,
+      "fname": "pratik",
+      "lname": "c",
+      "email": "pra@gmail.com",
+      "mobile": "101"
+    },
+    {
+      "id":8,
+      "fname": "piyush",
+      "lname": "d",
+      "email": "piyush@gmail.com",
+      "mobile": "102"
+    },
+    {
+      "id":9,
+      "fname": "aman",
+      "lname": "e",
+      "email": "aman@gmail.com",
+      "mobile": "103"
+    },
+    {
+      "id":10,
+      "fname": "mr",
+      "lname": "f",
+      "email": "mr@gmail.com",
+      "mobile": "104"
+    }
+  ]
+}
