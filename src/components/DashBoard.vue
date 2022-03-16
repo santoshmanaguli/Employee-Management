@@ -2,7 +2,7 @@
 <div>
     <h1 class="text-center">Employees</h1>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="rounded btn btn-primary" type="button">Add New</button>
+        <button class="rounded btn btn-primary" type="button">Add New</button>
     </div>
     <table class="table">
         <thead>
@@ -21,13 +21,16 @@
                 <td>{{employ.lname}}</td>
                 <td>{{employ.email}}</td>
                 <td>{{employ.mobile}}</td>
+                <td>
+                    <button class="btn-close" aria-label="Close" @click="deleteemp(employ.id)"></button>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
 <div>
 </div>
-<AddNew  />
+<AddNew />
 </template>
 
 <script>
@@ -35,7 +38,9 @@ import axios from 'axios';
 import AddNew from './AddNew.vue';
 
 export default {
-  components: { AddNew },
+    components: {
+        AddNew
+    },
     name: "DashBoard",
     data() {
         return {
@@ -47,10 +52,22 @@ export default {
             employees: []
         }
     },
+    methods: {
+        async deleteemp(id) {
+            let result = await axios.delete("http://localhost:3000/employees/" + id);
+            console.warn(result)
+            if (result.status === 200) {
+                this.loadData()
+            }
+        },
+        async loadData() {
+            let result = await axios.get("http://localhost:3000/employees");
+            console.warn(result)
+            this.employees = result.data;
+        }
+    },
     async mounted() {
-        let result = await axios.get("http://localhost:3000/employees");
-        console.warn(result)
-        this.employees = result.data;
+        this.loadData();
     }
 }
 </script>
