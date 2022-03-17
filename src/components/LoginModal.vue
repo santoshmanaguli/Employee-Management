@@ -14,7 +14,7 @@
                     <input v-model="form.pass" placeholder="enter password" class="rounded p-2 shadow-lg w-100" type="password" />
                 </div>
                 <div class="my-4">
-                    <button type="submit" class="w-100 rounded shadow-md p-2" style="background-color: cyan" @click="submitForm">Submit</button>
+                    <button type="button" class="w-100 rounded shadow-md p-2" style="background-color: cyan" @click="submitForm">Submit</button>
                 </div>
             </form>
         </div>

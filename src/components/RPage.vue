@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-dark" id="btn" :disabled="!formisValid" @click="submitform" type="submit">Register</button>
+        <button class="btn btn-dark" id="btn" :disabled="!formisValid" @click="submitform" type="button">Register</button>
     </form>
 </div>
 </template>
