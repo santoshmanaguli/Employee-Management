@@ -1,17 +1,17 @@
 {
   "employees": [
     {
-      "id": 1,
       "fname": "rohan",
-      "lname": "a",
+      "lname": "astana",
       "email": "rohan@gmail.com",
-      "mobile": "123"
+      "mobile": "123",
+      "id": 1
     },
     {
       "fname": "sohan",
       "lname": "barbate",
       "email": "sohan@gmail.com",
-      "mobile": "456",
+      "mobile": "4569",
       "id": 2
     },
     {
@@ -71,8 +71,8 @@
       "id": 10
     },
     {
-      "fname": "a",
-      "lname": "b",
+      "fname": "aasdad",
+      "lname": "dasda",
       "email": "c@gmail.com",
       "mobile": "909",
       "id": 11
@@ -97,20 +97,6 @@
       "email": "dsad",
       "mobile": "sadad",
       "id": 14
-    },
-    {
-      "fname": "qdaddsad",
-      "lname": "dasd",
-      "email": "dsa@gmail.com",
-      "mobile": "11123",
-      "id": 17
-    },
-    {
-      "fname": "",
-      "lname": "",
-      "email": "",
-      "mobile": "",
-      "id": 18
     }
   ]
 }

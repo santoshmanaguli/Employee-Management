@@ -31,10 +31,7 @@ export default {
             lname: '',
             email: '',
             mobile: '',
-            },
-            employees: [],
-            isNewOpen: false,
-            editEmp: false,
+            }
         }
     },
     methods:{

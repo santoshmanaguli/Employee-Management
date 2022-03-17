@@ -15,9 +15,9 @@
                         <input placeholder="enter first name" class="rounded p-2 shadow-lg w-100" type="text" v-model="Employee.firstn" />
                         <label>Last Name</label>
                         <input placeholder="enter last name" class="rounded p-2 shadow-lg w-100" type="text" v-model="Employee.lastn" />
-                        <label>Email</label>
-                        <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="Employee.emailn" />
-                        <label>Mobile No</label>
+                        <label>Email</label><span class="error-message">*</span>
+                        <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="Employee.emailn" />      
+                        <label>Mobile No</label><span class="error-message">*</span>
                         <input placeholder="enter mobile id" class="rounded p-2 shadow-lg w-100" type="tel" v-model="Employee.mobilen" />
                         <button type="submit" class="btn btn-success" @click="addEmp">Add</button>
                     </form>
@@ -61,11 +61,6 @@ export default {
     name: "DashBoard",
     data() {
         return {
-            id: '',
-            fname: '',
-            lname: '',
-            email: '',
-            mobile: '',
             employees: [],
             isNewOpen: false,
             editEmp: false,

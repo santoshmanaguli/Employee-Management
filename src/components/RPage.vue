@@ -2,7 +2,7 @@
 <div>
     <form>
         <div>
-            <h4 id="h4" style="text-align: center">Registration Page</h4>
+            <h4 id="h4" style="text-align: center">User Registration</h4>
         </div>
         <div class="row g-3 align-items-center">
             <div id="name"><input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="First Name" v-model="form.fname" required />

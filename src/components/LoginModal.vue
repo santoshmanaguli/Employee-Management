@@ -8,13 +8,15 @@
                 <div class="my-4">
                     <label> Email</label>
                     <input v-model="form.email" placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email"/>
+                    <p v-if="!emailisValid" class="error-message">Email cannot be blank</p>
                 </div>
                 <div class="my-4">
                     <label>Password</label>
                     <input v-model="form.pass" placeholder="enter password" class="rounded p-2 shadow-lg w-100" type="password" />
+                    <p v-if="!passisValid" class="error-message">Password cannot be blank</p>
                 </div>
                 <div class="my-4">
-                    <button type="button" class="w-100 rounded shadow-md p-2" style="background-color: cyan" @click="submitForm">Submit</button>
+                    <button type="button" class="w-100 rounded shadow-md p-2" :disabled="!formisValid" style="background-color: cyan" @click="submitForm">Submit</button>
                 </div>
             </form>
         </div>
@@ -42,6 +44,17 @@ export default {
             console.log("invalid")
           }
         }
+    },
+    computed: {
+      emailisValid(){
+        return this.form.email !== ""
+      },
+      passisValid(){
+        return this.form.pass !== ""
+      },
+      formisValid(){
+        return this.form.email && this.form.pass
+      }
     }
 }
 </script>
