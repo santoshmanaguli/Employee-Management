@@ -14,7 +14,7 @@
         <label>Mobile No</label>
         <input type="tel" class="rounded p-2 w-10" v-model="Employee.mobile" />
         <br />
-        <button type="submit">Save</button>
+        <button type="button" @click="saveEmp">Save</button>
     </form>
     </div>
 </template>
@@ -35,10 +35,20 @@ export default {
             employees: [],
             isNewOpen: false,
             editEmp: false,
-                firstn: '',
-                lastn: '',
-                emailn: '',
-                mobilen: '',
+        }
+    },
+    methods:{
+        async saveEmp(){
+            console.warn(this.Employee)
+            const result = await axios.put("http://localhost:3000/employees/"+this.$route.params.id, {
+                fname: this.Employee.fname,
+                lname: this.Employee.lname,
+                email: this.Employee.email,
+                mobile: this.Employee.mobile,
+            });
+            if(result.status == 200){
+                this.$router.push({name:'DashBoard'});
+            }
         }
     },
     async mounted(){

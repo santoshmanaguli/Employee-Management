@@ -19,7 +19,7 @@
                         <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="Employee.emailn" />
                         <label>Mobile No</label>
                         <input placeholder="enter mobile id" class="rounded p-2 shadow-lg w-100" type="tel" v-model="Employee.mobilen" />
-                        <button type="button" class="btn btn-success" @click="addEmp">Add</button>
+                        <button type="submit" class="btn btn-success" @click="addEmp">Add</button>
                     </form>
                 </div>
             </div>
@@ -86,7 +86,7 @@ export default {
                 email: this.Employee.emailn,
                 mobile: this.Employee.mobilen,
             });
-            console.warn("result", result)
+            console.warn(result)
         },
         async deleteemp(id) {
             let result = await axios.delete("http://localhost:3000/employees/" + id);
