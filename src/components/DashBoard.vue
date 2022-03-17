@@ -12,13 +12,13 @@
                     <h4 class="text-center">Add New Employee</h4>
                     <form>
                         <label>First Name</label>
-                        <input placeholder="enter first name" class="rounded p-2 shadow-lg w-100" type="text" v-model="newEmployee.firstn" />
+                        <input placeholder="enter first name" class="rounded p-2 shadow-lg w-100" type="text" v-model="Employee.firstn" />
                         <label>Last Name</label>
-                        <input placeholder="enter last name" class="rounded p-2 shadow-lg w-100" type="text" v-model="newEmployee.lastn" />
+                        <input placeholder="enter last name" class="rounded p-2 shadow-lg w-100" type="text" v-model="Employee.lastn" />
                         <label>Email</label>
-                        <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="newEmployee.emailn" />
+                        <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="Employee.emailn" />
                         <label>Mobile No</label>
-                        <input placeholder="enter mobile id" class="rounded p-2 shadow-lg w-100" type="tel" v-model="newEmployee.mobilen" />
+                        <input placeholder="enter mobile id" class="rounded p-2 shadow-lg w-100" type="tel" v-model="Employee.mobilen" />
                         <button type="button" class="btn btn-success" @click="addEmp">Add</button>
                     </form>
                 </div>
@@ -43,7 +43,8 @@
                 <td>{{employ.email}}</td>
                 <td>{{employ.mobile}}</td>
                 <td>
-                    <button class="btn-close" aria-label="Close" @click="deleteemp(employ.id)"></button>
+                    <router-link :to="'/editemp/'+employ.id">Edit123</router-link>
+                    <button class="btn-close w-50" aria-label="Close" @click="deleteemp(employ.id)" ></button>
                 </td>
             </tr>
         </tbody>
@@ -67,24 +68,25 @@ export default {
             mobile: '',
             employees: [],
             isNewOpen: false,
-            newEmployee:{
-                firstn:'',
-                lastn:'',
-                emailn:'',
-                mobilen:'',
+            editEmp: false,
+            Employee: {
+                firstn: '',
+                lastn: '',
+                emailn: '',
+                mobilen: '',
             }
         }
     },
     methods: {
-        async addEmp(){
-            console.warn(this.newEmployee)
-            const result = await axios.post("http://localhost:3000/employees",{
-                fname:this.newEmployee.firstn,
-                lname:this.newEmployee.lastn,
-                email:this.newEmployee.emailn,
-                mobile:this.newEmployee.mobilen,
+        async addEmp() {
+            console.warn(this.Employee)
+            const result = await axios.post("http://localhost:3000/employees", {
+                fname: this.Employee.firstn,
+                lname: this.Employee.lastn,
+                email: this.Employee.emailn,
+                mobile: this.Employee.mobilen,
             });
-            console.warn("result",result)
+            console.warn("result", result)
         },
         async deleteemp(id) {
             let result = await axios.delete("http://localhost:3000/employees/" + id);
