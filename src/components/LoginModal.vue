@@ -16,7 +16,7 @@
                     <p v-if="!passisValid" class="error-message">Password cannot be blank</p>
                 </div>
                 <div class="my-4">
-                    <button type="button" class="w-100 rounded shadow-md p-2" :disabled="!formisValid" style="background-color: cyan" @click="submitForm">Submit</button>
+                    <button type="submit" class="w-100 rounded shadow-md p-2" :disabled="!formisValid" style="background-color: cyan" @click="submitForm">Submit</button>
                 </div>
             </form>
         </div>
@@ -38,10 +38,11 @@ export default {
         submitForm() {
           if(this.form.email === "vue@gmail.com" && this.form.pass === "vuejs")
           {
-            console.log("succesfull")
+            alert("succesfull")
+
           }
           else{
-            console.log("invalid")
+            alert("invalid")
           }
         }
     },

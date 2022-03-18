@@ -2,10 +2,10 @@
 <div>
     <h1 class="text-center">Employees</h1>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="rounded btn btn-primary" type="button" @click="isNewOpen = true">Add New</button>
+        <button class="rounded btn btn-primary" type="button" @click="isAddOpen = true">Add New</button>
     </div>
-    <div v-if="isNewOpen">
-        <section class="sec1" @click="isNewOpen = false"></section>
+    <div v-if="isAddOpen">
+        <section class="sec1" @click="isAddOpen = false"></section>
         <div class="position-absolute top-50 start-50 translate-middle" style="z-index: 30">
             <div style="height: 100%" class="d-flex">
                 <div id="login-div1">
@@ -16,10 +16,10 @@
                         <label>Last Name</label>
                         <input placeholder="enter last name" class="rounded p-2 shadow-lg w-100" type="text" v-model="Employee.lastn" />
                         <label>Email</label><span class="error-message">*</span>
-                        <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="Employee.emailn" />      
+                        <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="Employee.emailn" />
                         <label>Mobile No</label><span class="error-message">*</span>
                         <input placeholder="enter mobile id" class="rounded p-2 shadow-lg w-100" type="tel" v-model="Employee.mobilen" />
-                        <button type="submit" class="btn btn-success" @click="addEmp">Add</button>
+                        <button type="submit" class="btn btn-success" @click="addEmp" :disabled="!formisValid">Add</button>
                     </form>
                 </div>
             </div>
@@ -43,8 +43,8 @@
                 <td>{{employ.email}}</td>
                 <td>{{employ.mobile}}</td>
                 <td>
-                    <router-link :to="'/editemp/'+employ.id">Edit123</router-link>
-                    <button class="btn-close w-50" aria-label="Close" @click="deleteemp(employ.id)" ></button>
+                    <router-link :to="'/editemp/'+employ.id">Edit</router-link>
+                    <button class="btn-close w-50" aria-label="Close" @click="deleteemp(employ.id)"></button>
                 </td>
             </tr>
         </tbody>
@@ -59,10 +59,21 @@ import axios from 'axios';
 
 export default {
     name: "DashBoard",
+    computed: {
+        emailisValid() {
+            return this.Employee.emailn !== ""
+        },
+        passisValid() {
+            return this.Employee.mobilen !== ""
+        },
+        formisValid() {
+            return this.Employee.emailn && this.Employee.mobilen
+        }
+    },
     data() {
         return {
             employees: [],
-            isNewOpen: false,
+            isAddOpen: false,
             editEmp: false,
             Employee: {
                 firstn: '',

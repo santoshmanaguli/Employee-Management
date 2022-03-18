@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: "RPage",
 
@@ -40,12 +42,17 @@ export default {
         };
     },
     methods: {
-        submitform() {
-            if (this.formisValid) {
-                console.log(this.form)
-            } else {
-                alert("Invalid Data");
-            }
+        async submitform() {
+            console.warn(this.form)
+            const result = await axios.post("http://localhost:3000/form", {
+                fname: this.form.fname,
+                lname: this.form.lname,
+                email: this.form.email,
+                pass: this.form.pass,
+            });
+            alert("User Registered")
+            console.warn(result)
+            
         },
     },
     computed: {
