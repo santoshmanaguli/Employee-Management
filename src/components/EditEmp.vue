@@ -6,23 +6,23 @@
             <h3 class="text-center">Edit Employee</h3>
             <form class="p-2 my-2">
                 <div class="my-4">
-                    <label>First Name</label>
+                    <label>First Name</label><br>
                     <input type="text" class="rounded p-2 w-10" v-model="Employee.fname" />
                 </div>
                 <div class="my-4">
-                    <label>Last Name</label>
+                    <label>Last Name</label><br>
                     <input type="text" class="rounded p-2 w-10" v-model="Employee.lname" />
                 </div>
                 <div class="my-4">
-                    <label>Email</label>
+                    <label>Email:-</label><br>
                     <input type="email" class="rounded p-2 w-10" v-model="Employee.email" />
                 </div>
                 <div class="my-4">
-                    <label>Mobile No</label>
+                    <label>Mobile No</label><br>
                     <input type="tel" class="rounded p-2 w-10" v-model="Employee.mobile" />
                 </div>
                 <div class="my-4">
-                    <button type="button" @click="saveEmp">Save</button>
+                    <button type="button" class="btn btn-primary" @click="saveEmp">Save</button>
                 </div>
             </form>
 

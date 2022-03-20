@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import DashBoard from "./components/DashBoard"
-import RPage from "./components/RPage"
-import EditEmp from "./components/EditEmp"
+import DashBoard from "./components/DashBoard.vue"
+import RPage from "./components/RPage.vue"
+import EditEmp from "./components/EditEmp.vue"
 
 const routes = [
     {
@@ -10,12 +10,13 @@ const routes = [
         component: DashBoard
     },
     {
+        name: "RPage",
         path: "/rpage",
         component: RPage
     },
     {
-        name:"EditEmp",
-        path:"/editemp/:id",
+        name: "EditEmp",
+        path: "/editemp/:id",
         component: EditEmp
     }
 ];

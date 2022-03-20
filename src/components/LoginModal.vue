@@ -16,7 +16,7 @@
                     <p v-if="!passisValid" class="error-message">Password cannot be blank</p>
                 </div>
                 <div class="my-4">
-                    <button type="submit" class="w-100 rounded shadow-md p-2" :disabled="!formisValid" style="background-color: cyan" @click="submitForm">Submit</button>
+                    <button type="submit" class="w-100 rounded shadow-md p-2" :disabled="!formisValid" style="background-color: cyan" @click.prevent="submitForm">Login</button>
                 </div>
             </form>
         </div>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data(){
     return{
@@ -35,14 +36,21 @@ export default {
     }
   },
     methods: {
-        submitForm() {
-          if(this.form.email === "vue@gmail.com" && this.form.pass === "vuejs")
-          {
-            alert("succesfull")
-
+        async submitForm() {
+          let result = await axios.get(`http://localhost:3000/form?email=${this.form.email}&pass=${this.form.pass}`)
+          console.warn(result)
+          if(result.status==200 && result.data.length>0){
+            localStorage.setItem("userinfo",JSON.stringify(result.data[0]))
+            this.$router.push({name:"DashBoard"})
           }
           else{
-            alert("invalid")
+            alert("Email/Password invalid")
+          }
+        },
+        mounted(){
+          let user = localStorage.getItem('userinfo');
+          if(user){
+            this.$router.push({name:'DashBoard'})
           }
         }
     },

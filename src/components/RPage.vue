@@ -4,7 +4,7 @@
         <div>
             <h4 id="h4" style="text-align: center">User Registration</h4>
         </div>
-        <div class="row g-3 align-items-center">
+        <div class="row g-3 align-items-center d-grid gap-3 p-3 col-4 mx-auto">
             <div id="name"><input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="First Name" v-model="form.fname" required />
                 <p v-if="!fnameisValid" class="error-message">First Name cannot be blank</p>
                 <br>
@@ -20,7 +20,9 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-dark" id="btn" :disabled="!formisValid" @click="submitform" type="button">Register</button>
+        <div class="d-grid gap-2 col-1 mx-auto">
+            <button class="btn btn-dark" id="btn" :disabled="!formisValid" @click="submitform" type="button">Register</button>
+        </div>
     </form>
 </div>
 </template>
@@ -50,9 +52,11 @@ export default {
                 email: this.form.email,
                 pass: this.form.pass,
             });
-            alert("User Registered")
             console.warn(result)
-            
+            if (result.status == 201) {
+                alert("User Registered now click on Login")
+            }
+
         },
     },
     computed: {

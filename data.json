@@ -5,35 +5,14 @@
       "fname": "santosh",
       "lname": "man",
       "email": "santosh@gmail.com",
-      "passwprd": "000"
+      "pass": "000"
     },
     {
       "fname": "sonu",
       "lname": "a",
       "email": "email@gmail.com",
-      "password": "1234",
+      "pass": "1234",
       "id": 2
-    },
-    {
-      "fname": "monu",
-      "lname": "shan",
-      "email": "monu@gmail.com",
-      "pass": "sad113",
-      "id": 3
-    },
-    {
-      "fname": "monu",
-      "lname": "shan",
-      "email": "monu",
-      "pass": "sad113",
-      "id": 4
-    },
-    {
-      "fname": "a",
-      "lname": "b",
-      "email": "c@gmail.com",
-      "pass": "dda123",
-      "id": 5
     }
   ],
   "employees": [
@@ -92,13 +71,6 @@
       "email": "santosh@gmail.com",
       "mobile": "9974398",
       "id": 9
-    },
-    {
-      "fname": "nice",
-      "lname": "nice",
-      "email": "nice@gmail.com",
-      "mobile": "123913",
-      "id": 10
     }
   ]
 }

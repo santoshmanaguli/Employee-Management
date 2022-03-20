@@ -43,7 +43,7 @@
                 <td>{{employ.email}}</td>
                 <td>{{employ.mobile}}</td>
                 <td>
-                    <router-link :to="'/editemp/'+employ.id">Edit</router-link>
+                    <router-link :to="'/editemp/'+employ.id"><button class="btn btn-info">Edit</button></router-link>
                     <button class="btn-close w-50" aria-label="Close" @click="deleteemp(employ.id)"></button>
                 </td>
             </tr>
