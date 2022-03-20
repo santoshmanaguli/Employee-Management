@@ -7,12 +7,12 @@
             <form class="p-2 my-2">
                 <div class="my-4">
                     <label> Email</label>
-                    <input v-model="form.email" placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email"/>
+                    <input v-model="form.email" placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" required />
                     <p v-if="!emailisValid" class="error-message">Email cannot be blank</p>
                 </div>
                 <div class="my-4">
                     <label>Password</label>
-                    <input v-model="form.pass" placeholder="enter password" class="rounded p-2 shadow-lg w-100" type="password" />
+                    <input v-model="form.pass" placeholder="enter password" class="rounded p-2 shadow-lg w-100" type="password" required />
                     <p v-if="!passisValid" class="error-message">Password cannot be blank</p>
                 </div>
                 <div class="my-4">

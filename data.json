@@ -17,6 +17,13 @@
   ],
   "employees": [
     {
+      "fname": "so",
+      "lname": "b",
+      "email": "sohan@gmail.com",
+      "mobile": "4569",
+      "id": 1
+    },
+    {
       "fname": "sohan",
       "lname": "barbate",
       "email": "sohan@gmail.com",
@@ -43,34 +50,6 @@
       "lname": "14",
       "email": "jay@gmail.com",
       "mobile": "73242"
-    },
-    {
-      "fname": "vikram",
-      "lname": "gore",
-      "email": "vikram@gmail.com",
-      "mobile": "100",
-      "id": 6
-    },
-    {
-      "id": 7,
-      "fname": "pratik",
-      "lname": "c",
-      "email": "pra@gmail.com",
-      "mobile": "101"
-    },
-    {
-      "fname": "sonu",
-      "lname": "z",
-      "email": "sonu@gmail.com",
-      "mobile": "1200",
-      "id": 8
-    },
-    {
-      "fname": "santosh",
-      "lname": "managuli",
-      "email": "santosh@gmail.com",
-      "mobile": "9974398",
-      "id": 9
     }
   ]
 }

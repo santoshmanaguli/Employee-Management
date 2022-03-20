@@ -12,13 +12,13 @@
                     <a class="nav-link" @click="$emit('open-login')" href="#">Login</a>
                 </li>
                 <li v-if="isLoggedIn" class="nav-item">
+                    <a class="nav-link">{{email}}</a>
+                </li>
+                <li v-if="isLoggedIn" class="nav-item">
                     <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
                 </li>
                 <li v-if="isLoggedIn" class="nav-item">
                     <a href="#" class="nav-link" @click="logout">Logout</a>
-                </li>
-                <li v-if="isLoggedIn" class="nav-item">
-                    <a class="nav-link">{{email}}</a>
                 </li>
             </ul>
         </div>

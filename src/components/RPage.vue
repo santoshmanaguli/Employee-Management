@@ -5,7 +5,7 @@
             <h4 id="h4" style="text-align: center">User Registration</h4>
         </div>
         <div class="row g-3 align-items-center d-grid gap-3 p-3 col-4 mx-auto">
-            <div id="name"><input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="First Name" v-model="form.fname" required />
+            <div id="name"><input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="First Name" v-model="form.fname" />
                 <p v-if="!fnameisValid" class="error-message">First Name cannot be blank</p>
                 <br>
                 <input class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Last Name" v-model="form.lname" />
@@ -16,7 +16,7 @@
                 <br />
                 <div class="col-auto">
                     <input id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" placeholder="Password" type="password" v-model="form.pass" required />
-                    <p v-if="!passisValid" class="error-message">Enter valid password</p>
+                    <p v-if="!passisValid" class="error-message">Password length should be greater 6 and less then 16 </p>
                 </div>
             </div>
         </div>
@@ -61,16 +61,16 @@ export default {
     },
     computed: {
         fnameisValid() {
-            return !!this.form.fname
+            return !!this.form.fname && this.form.fname.length < 20
         },
         lnameisValid() {
-            return !!this.form.lname
+            return !!this.form.lname && this.form.lname.length < 20
         },
         emailisValid() {
             return this.form.email !== ""
         },
         passisValid() {
-            return this.form.pass !== ""
+            return this.form.pass !== "" && this.form.pass.length > 6 && this.form.pass.length < 16
         },
         formisValid() {
             return this.fnameisValid && this.lnameisValid && this.emailisValid && this.passisValid

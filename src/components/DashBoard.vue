@@ -19,7 +19,9 @@
                         <input placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" v-model="Employee.emailn" />
                         <label>Mobile No</label><span class="error-message">*</span>
                         <input placeholder="enter mobile id" class="rounded p-2 shadow-lg w-100" type="tel" v-model="Employee.mobilen" />
+                        <div class="d-grid gap-2 col-1 mx-auto">
                         <button type="submit" class="btn btn-success" @click="addEmp" :disabled="!formisValid">Add</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -63,11 +65,11 @@ export default {
         emailisValid() {
             return this.Employee.emailn !== ""
         },
-        passisValid() {
-            return this.Employee.mobilen !== ""
+        mobileisValid() {
+            return this.Employee.mobilen !== "" && this.Employee.mobilen.length == 10
         },
         formisValid() {
-            return this.Employee.emailn && this.Employee.mobilen
+            return this.emailisValid && this.mobileisValid
         }
     },
     data() {
@@ -95,10 +97,14 @@ export default {
             console.warn(result)
         },
         async deleteemp(id) {
+            if(confirm("Are you sure?")){
             let result = await axios.delete("http://localhost:3000/employees/" + id);
             console.warn(result)
             if (result.status === 200) {
                 this.loadData()
+            }
+            }else{
+                console.log("")
             }
         },
         async loadData() {
