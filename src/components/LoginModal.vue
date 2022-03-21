@@ -7,14 +7,16 @@
             <form class="p-2 my-2">
                 <div class="my-4">
                     <label> Email</label>
-                    <input v-model="form.email" placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email"/>
+                    <input v-model="form.email" placeholder="enter email id" class="rounded p-2 shadow-lg w-100" type="email" required />
+                    <p v-if="!emailisValid" class="error-message">Email cannot be blank</p>
                 </div>
                 <div class="my-4">
                     <label>Password</label>
-                    <input v-model="form.pass" placeholder="enter password" class="rounded p-2 shadow-lg w-100" type="password" />
+                    <input v-model="form.pass" placeholder="enter password" class="rounded p-2 shadow-lg w-100" type="password" required />
+                    <p v-if="!passisValid" class="error-message">Password cannot be blank</p>
                 </div>
                 <div class="my-4">
-                    <button type="submit" class="w-100 rounded shadow-md p-2" style="background-color: cyan" @click="submitForm">Submit</button>
+                    <button type="submit" class="w-100 rounded shadow-md p-2" :disabled="!formisValid" style="background-color: cyan" @click.prevent="submitForm">Login</button>
                 </div>
             </form>
         </div>
@@ -23,6 +25,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data(){
     return{
@@ -33,15 +36,34 @@ export default {
     }
   },
     methods: {
-        submitForm() {
-          if(this.form.email === "vue@gmail.com" && this.form.pass === "vuejs")
-          {
-            console.log("succesfull")
+        async submitForm() {
+          let result = await axios.get(`http://localhost:3000/form?email=${this.form.email}&pass=${this.form.pass}`)
+          console.warn(result)
+          if(result.status==200 && result.data.length>0){
+            localStorage.setItem("userinfo",JSON.stringify(result.data[0]))
+            this.$router.push({name:"DashBoard"})
           }
           else{
-            console.log("invalid")
+            alert("Email/Password invalid")
+          }
+        },
+        mounted(){
+          let user = localStorage.getItem('userinfo');
+          if(user){
+            this.$router.push({name:'DashBoard'})
           }
         }
+    },
+    computed: {
+      emailisValid(){
+        return this.form.email !== ""
+      },
+      passisValid(){
+        return this.form.pass !== ""
+      },
+      formisValid(){
+        return this.form.email && this.form.pass
+      }
     }
 }
 </script>
